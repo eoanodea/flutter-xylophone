@@ -6,7 +6,7 @@ Based on a tutorial by [London App Brewery on Linkedin Learning](https://www.lin
 
 ## Demo
 
-<img src="https://github.com/eoanodea/flutter-xylophone/demo.gif" alt="Finished App" width="300">
+<img src="https://github.com/eoanodea/flutter-xylophone/blob/master/demo.gif" alt="Finished App" width="300">
 
 ## What you need to run this code
 
