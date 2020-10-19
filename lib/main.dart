@@ -1,9 +1,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(XylophoneApp());
-}
+void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
   /// Initialise audio cache
@@ -15,6 +13,7 @@ class XylophoneApp extends StatelessWidget {
     Colors.orange,
     Colors.yellow,
     Colors.green,
+    Colors.lime,
     Colors.teal,
     Colors.blue,
     Colors.purple
@@ -22,33 +21,30 @@ class XylophoneApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var noteArr = [];
-
     /// play a note depending on it's file name
     /// expects an integer as a parameter
     void playNote(int num) {
       player.play('note$num.wav');
     }
 
-    /// Create an array between 1 and 7
-    for (var i = 0; i < 7; i++) {
-      noteArr.add(i + 1);
+    /// Renders a single key to the screen
+    Widget renderKey(int i) {
+      return Expanded(
+        child: FlatButton(
+          color: colors[i - 1],
+          onPressed: () => playNote(i),
+          child: Text(''),
+        ),
+      );
     }
 
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            for (var item in noteArr)
-              Expanded(
-                child: FlatButton(
-                    color: colors[item - 1],
-                    onPressed: () => playNote(item),
-                    child: Text('')),
-              )
-          ],
+          children: <Widget>[for (var i = 1; i < 9; i++) renderKey(i)],
         ),
       ),
     );
