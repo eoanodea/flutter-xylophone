@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +9,24 @@ class XylophoneApp extends StatelessWidget {
   /// Initialise audio cache
   static AudioCache player = AudioCache();
 
+  /// Create a list of colours
+  final List<Color> colors = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.teal,
+    Colors.blue,
+    Colors.purple
+  ];
+
   @override
   Widget build(BuildContext context) {
     var noteArr = [];
 
     /// play a note depending on it's file name
-    void playNote(num) {
+    /// expects an integer as a parameter
+    void playNote(int num) {
       player.play('note$num.wav');
     }
 
@@ -27,17 +37,18 @@ class XylophoneApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              for (var item in noteArr)
-                FlatButton(
-                  color: Color(Random().nextInt(0xffffffff)),
-                  onPressed: () => playNote(item),
-                  child: Text("Note $item"),
-                ),
-            ],
-          ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            for (var item in noteArr)
+              Expanded(
+                child: FlatButton(
+                    color: colors[item - 1],
+                    onPressed: () => playNote(item),
+                    child: Text('')),
+              )
+          ],
         ),
       ),
     );
