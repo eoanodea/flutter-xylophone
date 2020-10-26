@@ -2,6 +2,8 @@
 
 ## Description
 
+A simple Xylophone where you can play a full scale between 8 notes
+
 Based on a tutorial by [London App Brewery on Linkedin Learning](https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fflutter-part-05-flutter-and-dart-packages%3Ftrk%3Dshare_ent_url&account=56744273)
 
 ## Demo
